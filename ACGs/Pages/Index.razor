@@ -1,0 +1,47 @@
+﻿@page "/"
+
+<PageTitle>ACGs</PageTitle>
+
+<h1 class="pt-5">Atividades Complementares de Graduação</h1>
+
+<div class="py-4">
+    <p>A formação complementar é fruto da participação do aluno em atividades que não estão previstas na matriz curricular durante o Curso de graduação, mas que reconhecidamente contribuem para o desenvolvimento de conhecimentos e competências relevantes para sua formação acadêmica. </p>
+    <p>O aluno do Curso a distância de Sistemas de Informação precisa cumprir uma carga horária mínima de <strong>40 horas de ACG</strong>, devidamente comprovadas.</p>
+</div>
+
+<div class="alert alert-primary" role="alert">
+    <span class="oi oi-calculator" aria-hidden="true"></span>
+    Utilize a <a href="/calc" class="alert-link">ACG Calc</a> para descobrir quantas horas de atividades complementares você já cumpriu.
+</div>
+
+<div class="row">
+    @foreach (var card in cards)
+            {
+                <Card Title="@card.Title" Description="@card.Description" />
+            }
+</div>
+
+@code{
+    List<Model.CardContent> cards = new();
+
+    protected override void OnInitialized()
+    {
+        cards.AddRange(new List<Model.CardContent>
+        {
+            new Model.CardContent {Title = "Eventos", Description = "Participação em congressos, semanas da área de computação e informática, minicursos e eventos da área.", HourRule = "1 hora para cada hora de evento.", HourLimit = 30, CreditSystem = "Cópia do certificado de participação no evento."},
+            new Model.CardContent {Title = "Publicações", Description = "Publicações em periódicos e congressos da área.", HourRule = "30 horas por publicação", HourLimit = 60, CreditSystem = "Comprovante de publicação e cópia impressa do artigo."},
+            new Model.CardContent {Title = "Apresentação de Trabalhos", Description = "Apresentação de trabalhos em congressos e demais eventos que sejam da área de computação.", HourRule = "10 horas por trabalho apresentado.", HourLimit = 60, CreditSystem = "Cópia do certificado de apresentação."},
+            new Model.CardContent {Title = "Iniciação Científica", Description = "Desenvolvimento de projetos de iniciação científica ou projetos de pesquisa com duração de pelo menos um ano.", HourRule = "45 horas por projeto de pesquisa. Os seminários de apresentação de iniciação científica já estão incluídos nas 45 horas e não serão considerados separadamente.", HourLimit = 45, CreditSystem = "Cópia da declaração de conclusão do projeto de pesquisa concedida pelo órgão responsável."},
+            new Model.CardContent {Title = "Monitoria", Description = "Monitoria em disciplinas do curso da área de Computação e Informática.", HourRule = "15 horas por um semestre de monitoria de 10 horas semanais. 30 horas por um semestre de monitoria de 20 horas semanais.", HourLimit = 30, CreditSystem = "Cópia da declaração de monitoria fornecida pela PUC Minas."},
+            new Model.CardContent {Title = "Estágio", Description = "Estágios não obrigatórios ou atuação profissional na área de Engenharia de Software.", HourRule = "3h/mês de atividades com 10 horas semanais. 5h/mês de atividades com 20 horas semanais. 7h/mês de atividades com 30 horas semanais. 10h/mês de atividades com 40 horas semanais.", HourLimit = 30, CreditSystem = "Termo de compromisso de Estágio, assinado pela PUC Minas, aluno e Instituição concedente. Registro no SGE com comprovação de entrega dos relatórios obrigatórios devidamente acompanhado pelo professor. Horas indicadas no termo de compromisso de estágio."},
+            new Model.CardContent {Title = "Apoio a Professores", Description = "Atividades de apoio a professores do curso, tais como participação em pesquisa e desenvolvimento de software aplicativos de apoio didático.", HourRule = "1 hora para cada duas horas de atividade realizada.", HourLimit = 40, CreditSystem = "Declaração de realização da atividade assinada pelo professor orientador."},
+            new Model.CardContent {Title = "Projetos de Extensão", Description = "Participação em atividades de extensão promovidas pelo curso ou pela Universidade.", HourRule = "1 hora para cada duas horas de atividade realizada.", HourLimit = 40, CreditSystem = "Declaração de realização da atividade assinada pelo coordenador de extensão do curso."},
+            new Model.CardContent {Title = "Trabalho Voluntário", Description = "Trabalhos voluntários em instituições culturais, filantrópicas ou de ensino.", HourRule = "1 hora para cada duas horas de atividade realizada.", HourLimit = 30, CreditSystem = "Declaração de realização da atividade assinada pelo representante legal da instituição."},
+            new Model.CardContent {Title = "Pastoral Universitária", Description = "Participação em atividades da Pastoral Universitária.", HourRule = "1 hora para cada duas horas de atividade realizada.", HourLimit = 20, CreditSystem = "Declaração de realização da atividade assinada pelo coordenador da pastoral universitária na unidade."},
+            new Model.CardContent {Title = "Premiações", Description = "Premiações e distinções acadêmicas.", HourRule = "20 horas por prêmio.", HourLimit = 40, CreditSystem = "Cópia do certificado de premiação."},
+            new Model.CardContent {Title = "Pré-incubação de Empresa", Description = "Pré-Incubação de empresa em área relacionada ao âmbito do curso em algum programa de incubação de empresas.", HourRule = "40 horas por incubação.", HourLimit = 40, CreditSystem = "Declaração de realização da pré-incubação assinada pelo orientador de empreendedorismo do curso."},
+            new Model.CardContent {Title = "Certificações Profissionais", Description = "Certificações profissionais emitidas por órgãos ou empresas do mercado que atestam competência do indivíduo em tecnologias específicas mediante o rendimento apresentado em prova específica", HourRule = "10 horas por certificação.", HourLimit = 30, CreditSystem = "Cópia do certificado de aprovação fornecida pelos órgãos ou empresa competente."},
+            new Model.CardContent {Title = "Disciplinas Extracurriculares", Description = "Disciplinas extracurriculares, ofertadas em cursos da PUC Minas e que representem oportunidades de complementação da formação profissional para atuar na área de Engenharia de Software.", HourRule = "15 horas por UC.", HourLimit = 45, CreditSystem = "Cópia do Histórico Escolar emitido pela PUC Minas."}
+        });
+    }
+}
