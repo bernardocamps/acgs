@@ -6,7 +6,7 @@
 
 <div class="py-4">
     <p>A formação complementar é fruto da participação do aluno em atividades que não estão previstas na matriz curricular durante o curso de graduação, mas que reconhecidamente contribuem para o desenvolvimento de conhecimentos e competências relevantes para sua formação acadêmica. </p>
-    <p>O aluno do Curso a distância de Sistemas de Informação precisa cumprir uma carga horária mínima de <strong>40 horas de ACG</strong>, devidamente comprovadas.</p>
+    <p>O aluno do curso a distância de Sistemas de Informação precisa cumprir uma carga horária mínima de <strong>40 horas de ACG</strong>, devidamente comprovadas.</p>
 </div>
 
 <div class="alert alert-primary" role="alert">
@@ -17,7 +17,7 @@
 <div class="row">
     @foreach (var card in cards)
             {
-                <Card Title="@card.Title" Description="@card.Description" />
+                <Card Title="@card.Title" Description="@card.Description" HourRule="@card.HourRule" HourLimit="@card.HourLimit" CreditSystem="@card.CreditSystem" />
             }
 </div>
 
