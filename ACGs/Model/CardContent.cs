@@ -9,6 +9,7 @@ namespace ACGs.Model
         public string? HourRule { get; set; }
         public int? HourLimit { get; set; }
         public string? CreditSystem { get; set; }
+        public string? CardText { get; set; }
     }
 }
 

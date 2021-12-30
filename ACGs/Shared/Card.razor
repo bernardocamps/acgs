@@ -1,0 +1,57 @@
+﻿<div class="col-lg-6 col-xl-4 my-3">
+    <div class="card" style="overflow: hidden; border-radius: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <div class="row g-0">
+            <div class="card-body mx-3">
+                <h3 class="card-title my-3">@Title</h3>
+                <p class="card-subtitle my-3 text-muted">@CardText</p>
+            </div>
+            <div class="card-footer d-flex justify-content-around">
+                <span class="oi oi-info text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Info">Info</button></span>
+                <span class="oi oi-list text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Regras">Regras</button></span>
+                <span class="oi oi-data-transfer-upload text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Limite">Limite</button></span>
+                <span class="oi oi-file text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Docs">Docs</button></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+        [Parameter]
+        public string? Title { get; set; }
+
+        [Parameter]
+        public string? Description { get; set; }
+
+        [Parameter]
+        public string? HourRule { get; set; }
+
+        [Parameter]
+        public int? HourLimit { get; set; }
+
+        [Parameter]
+        public string? CreditSystem { get; set; }
+
+        [Parameter]
+        public string? CardText { get; set; }
+
+        private void Info()
+        {
+            CardText = Description;
+        }
+
+        private void Regras()
+        {
+            CardText = HourRule;
+        }
+
+        private void Limite()
+        {
+            CardText = $"{HourLimit} horas.";
+        }
+
+        private void Docs()
+        {
+            CardText = CreditSystem;
+        }
+    }
+
