@@ -6,52 +6,52 @@
                 <p class="card-subtitle my-3 text-muted">@CardText</p>
             </div>
             <div class="card-footer d-flex justify-content-around">
-                <span class="oi oi-info text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Info">Info</button></span>
-                <span class="oi oi-list text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Regras">Regras</button></span>
-                <span class="oi oi-data-transfer-upload text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Limite">Limite</button></span>
-                <span class="oi oi-file text-muted w-auto"><button class="btn btn-sm text-muted" @onclick="Docs">Docs</button></span>
+                <button class="btn btn-sm" @onclick="Info"><span class="oi oi-info px-2"></span>Info</button>
+                <button class="btn btn-sm" @onclick="Regras"><span class="oi oi-list px-2"></span>Regras</button>
+                <button class="btn btn-sm" @onclick="Limite"><span class="oi oi-data-transfer-upload px-2"></span>Limite</button>
+                <button class="btn btn-sm" @onclick="Docs"><span class="oi oi-file px-2"></span>Docs</button>
             </div>
         </div>
     </div>
 </div>
 
 @code {
-        [Parameter]
-        public string? Title { get; set; }
+    [Parameter]
+    public string? Title { get; set; }
 
-        [Parameter]
-        public string? Description { get; set; }
+    [Parameter]
+    public string? Description { get; set; }
 
-        [Parameter]
-        public string? HourRule { get; set; }
+    [Parameter]
+    public string? HourRule { get; set; }
 
-        [Parameter]
-        public int? HourLimit { get; set; }
+    [Parameter]
+    public int? HourLimit { get; set; }
 
-        [Parameter]
-        public string? CreditSystem { get; set; }
+    [Parameter]
+    public string? CreditSystem { get; set; }
 
-        [Parameter]
-        public string? CardText { get; set; }
+    [Parameter]
+    public string? CardText { get; set; }
 
-        private void Info()
-        {
-            CardText = Description;
-        }
-
-        private void Regras()
-        {
-            CardText = HourRule;
-        }
-
-        private void Limite()
-        {
-            CardText = $"{HourLimit} horas.";
-        }
-
-        private void Docs()
-        {
-            CardText = CreditSystem;
-        }
+    private void Info()
+    {
+        CardText = Description;
     }
+
+    private void Regras()
+    {
+        CardText = HourRule;
+    }
+
+    private void Limite()
+    {
+        CardText = $"{HourLimit} horas.";
+    }
+
+    private void Docs()
+    {
+        CardText = CreditSystem;
+    }
+}
 
